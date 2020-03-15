@@ -1,0 +1,24 @@
+{
+  "name": "docrud",
+  "version": "1.0.0",
+  "description": "Crud app in express and node",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "nodemon server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github\\michitson\\docrud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4",
+    "morgan": "^1.9.1"
+  }
+}
