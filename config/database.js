@@ -18,15 +18,15 @@ module.exports =function(){
     mongoose.connect(dbURL);
 
     mongoose.connection.on('connected', function(){
-        console.log(connected("Mongoose default connection is open to ", dbURL));
+        console.log(connected("DOCRUD: Mongoose default connection is open to ", dbURL));
     });
 
     mongoose.connection.on('error', function(err){
-        console.log(error("Mongoose default connection has occured "+err+" error"));
+        console.log(error("DOCRUD: Mongoose default connection has occured "+err+" error"));
     });
 
     mongoose.connection.on('disconnected', function(){
-        console.log(disconnected("Mongoose default connection is disconnected"));
+        console.log(disconnected("DOCRUD: Mongoose default connection is disconnected"));
     });
 
     process.on('SIGINT', function(){
