@@ -19,6 +19,7 @@ exports.createHero = function (req, res, next) {
 }
 
 exports.getHeros = function(req, res, next) {
+    console.log('DOCRUD: getHeros')
     Heros.get({}, function(err, heros) {
         if(err) {
             res.json({
