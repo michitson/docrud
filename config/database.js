@@ -24,6 +24,7 @@ module.exports =function(){
     mongoose.connect(dbURL, {
         useNewUrlParser: true,
         ssl: true,
+        useUnifiedTopology: true,
         sslValidate: false,
         sslCA: fs.readFileSync(fileUrl)})
     .then(() => console.log('Connection to DB successful'))
