@@ -15,6 +15,10 @@ var termination = chalk.bold.magenta;
 //export this function and imported by server.js
 module.exports =function(){
 
+var client = new MongoClient(connectionString);
+var server = client.GetServer();
+console.log(error("DOCRUD PING" + server.Ping()));
+
     mongoose.connect(dbURL);
 
     mongoose.connection.on('connected', function(){
@@ -23,7 +27,8 @@ module.exports =function(){
 
     mongoose.connection.on('error', function(err){
         console.log(error("DOCRUD: Mongoose default connection an ERROR has occured " + err + " error"));
-        console.log(error("DOCRUD: stack dump is  " + err.stack + " end stack dump"));
+        console.log(error("DOCRUD: stack dump is  " + err.stack));
+        console.log(error("DOCRUD END stack dump"))
     });
 
     mongoose.connection.on('disconnected', function(){
