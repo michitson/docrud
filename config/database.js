@@ -1,5 +1,7 @@
 //require mongoose module
 var mongoose = require('mongoose');
+var MongoClient = require('mongodb').MongoClient;
+
 
 //require chalk module to give colors to console text
 var chalk = require('chalk');
@@ -15,7 +17,8 @@ var termination = chalk.bold.magenta;
 //export this function and imported by server.js
 module.exports =function(){
 
-var client = new MongoClient(connectionString);
+var client = new MongoClient(dbURL);
+var x = new MongoClient()
 var server = client.GetServer();
 console.log(error("DOCRUD PING" + server.Ping()));
 
