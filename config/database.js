@@ -1,6 +1,6 @@
 //require mongoose module
 var mongoose = require('mongoose');
-var MongoClient = require('mongodb').MongoClient;
+var os = require("os");
 
 
 //require chalk module to give colors to console text
@@ -17,11 +17,6 @@ var termination = chalk.bold.magenta;
 //export this function and imported by server.js
 module.exports =function(){
 
-var client = new MongoClient(dbURL);
-var x = new MongoClient()
-var server = client.GetServer();
-console.log(error("DOCRUD PING" + server.Ping()));
-
     mongoose.connect(dbURL);
 
     mongoose.connection.on('connected', function(){
@@ -31,6 +26,7 @@ console.log(error("DOCRUD PING" + server.Ping()));
     mongoose.connection.on('error', function(err){
         console.log(error("DOCRUD: Mongoose default connection an ERROR has occured " + err + " error"));
         console.log(error("DOCRUD: stack dump is  " + err.stack));
+        console.log(error("DOCRUD hostname is " + os.hostname()))
         console.log(error("DOCRUD END stack dump"))
     });
 
