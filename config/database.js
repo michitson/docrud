@@ -17,18 +17,26 @@ var termination = chalk.bold.magenta;
 //export this function and imported by server.js
 module.exports =function(){
 
-    mongoose.connect(dbURL);
+    //mongoose.connect(dbURL);
 
-    mongoose.connection.on('connected', function(){
-        console.log(connected("DOCRUD: Mongoose default connection is OPEN to ", dbURL));
-    });
+    mongoose.connect(dbURL, {
+        useNewUrlParser: true,
+        ssl: true,
+        sslValidate: false,
+        sslCA: fs.readFileSync('./rds-combined-ca-bundle.pem')})
+    .then(() => console.log('Connection to DB successful'))
+    .catch((err) => console.error(err,'Error'));
 
-    mongoose.connection.on('error', function(err){
-        console.log(error("DOCRUD: Mongoose default connection an ERROR has occured " + err + " error"));
-        console.log(error("DOCRUD: stack dump is  " + err.stack));
-        console.log(error("DOCRUD hostname is " + os.hostname()))
-        console.log(error("DOCRUD END stack dump"))
-    });
+    // mongoose.connection.on('connected', function(){
+    //     console.log(connected("DOCRUD: Mongoose default connection is OPEN to ", dbURL));
+    // });
+
+    // mongoose.connection.on('error', function(err){
+    //     console.log(error("DOCRUD: Mongoose default connection an ERROR has occured " + err + " error"));
+    //     console.log(error("DOCRUD: stack dump is  " + err.stack));
+    //     console.log(error("DOCRUD hostname is " + os.hostname()))
+    //     console.log(error("DOCRUD END stack dump"))
+    // });
 
     mongoose.connection.on('disconnected', function(){
         console.log(disconnected("DOCRUD: Mongoose default connection is DISCONNECTED"));
