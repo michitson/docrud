@@ -22,7 +22,8 @@ module.exports =function(){
     });
 
     mongoose.connection.on('error', function(err){
-        console.log(error("DOCRUD: Mongoose default connection an ERROR has occured "+err+" error"));
+        console.log(error("DOCRUD: Mongoose default connection an ERROR has occured " + err + " error"));
+        console.log(error("DOCRUD: stack dump is  " + err.stack + " end stack dump"));
     });
 
     mongoose.connection.on('disconnected', function(){
