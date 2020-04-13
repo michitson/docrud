@@ -1,6 +1,5 @@
 //require mongoose module
 var mongoose = require('mongoose');
-var os = require("os");
 var fs = require('fs');
 
 
@@ -36,7 +35,6 @@ module.exports =function(){
     // mongoose.connection.on('error', function(err){
     //     console.log(error("DOCRUD: Mongoose default connection an ERROR has occured " + err + " error"));
     //     console.log(error("DOCRUD: stack dump is  " + err.stack));
-    //     console.log(error("DOCRUD hostname is " + os.hostname()))
     //     console.log(error("DOCRUD END stack dump"))
     // });
 
