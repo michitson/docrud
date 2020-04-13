@@ -19,14 +19,12 @@ var termination = chalk.bold.magenta;
 module.exports =function(){
 
     //mongoose.connect(dbURL);
-    const fileUrl = new URL(`file://${__dirname}/rds-combined-ca-bundle.pem`);
-    console.log('fileURL: ', fileUrl)
     mongoose.connect(dbURL, {
         useNewUrlParser: true,
         ssl: true,
         useUnifiedTopology: true,
         sslValidate: false,
-        sslCA: fs.readFileSync(fileUrl)})
+        sslCA: fs.readFileSync(new URL(`file://${__dirname}/rds-combined-ca-bundle.pem`))})
     .then(() => console.log('Connection to DB successful'))
     .catch((err) => console.error(err,'Error'));
 
