@@ -1,6 +1,8 @@
 //require mongoose module
 var mongoose = require('mongoose');
 var os = require("os");
+var fs = require('fs');
+
 
 
 //require chalk module to give colors to console text
